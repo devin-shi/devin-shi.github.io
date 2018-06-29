@@ -8,23 +8,17 @@
   技术积累
   
   </title>
-  
-  
-  <link href="atom.xml" rel="alternate" title="技术积累" type="application/atom+xml">
+ <meta name="description" content="">
+ <link href="atom.xml" rel="alternate" title="技术积累" type="application/atom+xml">
     <link rel="stylesheet" href="asset/css/foundation.min.css" />
     <link rel="stylesheet" href="asset/css/docs.css" />
+
     <script src="asset/js/vendor/modernizr.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
-  <script src="asset/highlightjs/highlight.pack.js"></script>
-  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script>hljs.initHighlightingOnLoad();</script>
-<script type="text/javascript">
-  function before_search(){
-    var searchVal = 'site: ' + document.getElementById('search_input').value;
-    document.getElementById('search_q').value = searchVal;
-    return true;
-  }
-</script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
   </head>
   <body class="antialiased hide-extras">
     
@@ -34,32 +28,11 @@
 
 <nav class="top-bar docs-bar hide-for-small" data-topbar>
 
-
-  <section class="top-bar-section">
-  <div class="row">
-      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
-        <ul id="main-menu" class="left">
-        
-        <li id=""><a target="self" href="index.html">Home</a></li>
-        
-        <li id=""><a target="_self" href="archives.html">Archives</a></li>
-        
-        </ul>
-
-        <ul class="right" id="search-wrap">
-          <li>
-<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
-    <input type="hidden" id="search_q" name="q" value="" />
-    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
-</form>
-</li>
-          </ul>
-      </div></div>
-  </div>
-  </section>
+<div id="header">
+    <h1><a href="index.html">技术积累</a></h1>
+</div>
 
 </nav>
-
         <nav class="tab-bar show-for-small">
   <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
     <span> &nbsp; 技术积累</span>
@@ -68,45 +41,48 @@
 
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-       
-       <li><a href="index.html">HOME</a></li>
-    <li><a href="archives.html">Archives</a></li>
-    <li><a href="about.html">ABOUT</a></li>
+      <li><a href="index.html">Home</a></li>
+      
+        <li class="divider"></li>
+        <li><label>Git版本工具</label></li>
 
-    <li><label>Categories</label></li>
+          
 
-        
-            <li><a href="Git%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7.html">Git版本工具</a></li>
-         
-
+      
       </ul>
     </aside>
 
 <a class="exit-off-canvas" href="#"></a>
 
-
         <section id="main-content" role="main" class="scroll-container">
-        
-       
 
- <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
-</script>
-<div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="15302598615448.html">
-                
-                  <h1>Git Flow流程</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>Git版本工具</span></li>
                         
-                        	<h3 id="toc_0">Git Flow 常用分支</h3>
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+
+ 
+
+
+	
+		<div class="markdown-body">
+		<h1>Git Flow流程</h1>
+
+		<h3 id="toc_0">Git Flow 常用分支</h3>
 
 <ol>
 <li><strong><code>master</code> 分支</strong>: 这个分支最近发布到生产环境的代码，最近发布的Release， 这个分支只能从其他分支合并，不能在这个分支直接修改</li>
@@ -233,371 +209,50 @@ git tag -a v0.1.1 master
 git push --tags
 </code></pre>
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/6/29</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15302611080576.html">
-                
-                  <h1>Git Flow 工具SourceTree</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>当你用Git-flow初始化后，基本上你只需要点击git flow菜单选择start feature, release或者hotfix, 做完后再次选择git flow菜单，点击Done Action. 我勒个去，我实在想不到还有比这更简单的了。<a href="https://www.sourcetreeapp.com/">下载地址</a></p>
-
-<h3 id="toc_0">操作指南</h3>
-
-<ol>
-<li>先用sourceTree 创建本地git 项目，xxxProject,</li>
-<li>在项目里面先提交一次 commit 一下，默认提交在了 master分支；</li>
-<li><p>然后在 sourceTree工具 右上角，点击 GitFlow,开启git Flow 规范模型的开发<br/>
-<img src="https://images0.cnblogs.com/blog/528071/201412/181059034069849.png" alt=""/><br/>
-如上图，在开启gitFlow 之后；<br/>
-生产环境分支使用：master<br/>
-开发分支使用：develop<br/>
-当需要新增加功能，发布版本时，创建补丁修复bug时，分别有对应的 feature,release,hotfix前缀这样的分支<br/>
-这样在项目的开发过程之中，管理项目分支就变得非常的规范了；</p></li>
-<li><p>开启之后，我们的项目就回到了develop 分支，以后所的开发都在这个分支上进行；当开发完成一些模块时，就可以回去 master分支 合并</p></li>
-<li><p>使用 gitFlow 添加新功能 ,点击 sourceTree 的右上角 Git Flow按钮，会出现 菜单，选择创建新功能<br/>
-<img src="https://images0.cnblogs.com/blog/528071/201412/181106371726945.png" alt=""/><br/>
-输出新功能名称，默认会在 新功能 分支上开发新功能；<br/>
-新功能 开发完成之后，再次点击 git flow 按钮，会出现 完成新功能，按钮点击,完成新功能，会把当前新功能合分支 合并到 develop分支，并删除新功能分支<br/>
-<img src="https://images0.cnblogs.com/blog/528071/201412/181111431407386.png" alt=""/></p></li>
-<li><p>使用Git Flow 发布新版本，同样点击 git Flow 按钮，菜单选择 创建新发布版本<br/>
-<img src="https://images0.cnblogs.com/blog/528071/201412/181114242038593.png" alt=""/><br/>
-在发布版本分支上，完成项目发布配置之后，提交，再点击 git flow 按钮，会弹出 完成发布版本 按钮，点击，<br/>
-<img src="https://images0.cnblogs.com/blog/528071/201412/181116496722401.png" alt=""/><br/>
-确认之后，会发现 发布版本的分支，会合并到 develop分支 和 master 分支，表示生产上发布了一个版本 </p></li>
-<li><p>使用git flow 新建补丁，修复bug<br/>
-比如上面发布的一个版本在生产用的时候，出现了一个 bug,这时，点击 git flow 菜单，选择 建立新的修复补丁<br/>
-<img src="https://images0.cnblogs.com/blog/528071/201412/181122181406716.png" alt=""/><br/>
-这时，bug修复分支，是基于 master的，在修复bug后，再次点击 git flow 弹出，完成 补丁修复 <br/>
-<img src="https://images0.cnblogs.com/blog/528071/201412/181123540005202.png" alt=""/><br/>
-确定之后，会发现，新修复的bug分支，会合并到 master分支和develop分支</p></li>
-<li><p>最后我们再来看看，经过上面的 创建项目--开启gitflow---添加新功能---发布新版本---修复bug 等流程之后，当前的 git提交状态吧<br/>
-<img src="https://images0.cnblogs.com/blog/528071/201412/181126443288272.png" alt=""/><br/>
-git 强大的分支管理功能，再加上 git flow 模型，，项目的代码管理开发，如此的清晰明了啊</p></li>
-</ol>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/6/29</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15302616116634.html">
-                
-                  <h1>Git Flow In GitLab</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h3 id="toc_0">gitlab与code review</h3>
-
-<p>在了解如何review之前先明确几个观点：</p>
-
-<ol>
-<li>master分支中的任何版本都认为是可以立即部署的</li>
-<li>每一次master分支的变更都来自于其它分支向master的合并操作。</li>
-<li>对master的修改需要review。</li>
-</ol>
-
-<p>借助于gitlab的merge request机制，与上面说的工作流程，我们可以在release分支正式合并到master分支之前建立merge request，在其他人review完成这次合并之后再正式进行合并。</p>
-
-<h4 id="toc_1">review的初步流程</h4>
-
-<ol>
-<li>将需要合并到master的分支push到gitlab。</li>
-<li>进入工程-merge request -create new merge request</li>
-<li>选择源分支、目标分支，确定。</li>
-<li>review负责人进入merge request，确认没有问题之后选择Auto Merge（或者手动在本地合并之后再push到gitlab），并关闭这个merge request，完成。</li>
-<li>如果发现问题那么在有问题的行下注释，并提醒request的发起人及时修改。</li>
-</ol>
-
-<h3 id="toc_2">分配成员角色</h3>
-
-<p>首先来了解下，Git 中的五种角色：<br/>
-1. Guest：访客，貌似没有什么权限；<br/>
-2. Reporter：可以 拉代码，但是不能push 到仓库的默认分支；<br/>
-3. Developer：项目的开发人员，能够推送和删除没有保护的分支，刚创建的分支 默认 都是没有保护的；<br/>
-4. Master：项目管理人员，可以对没有保护和有保护的所有分支进行操作，几乎拥有所有权限；<br/>
-5. Owner：系统管理员，拥有所有权限</p>
-
-<p>我们需要做的是，<strong>为项目成员分配恰当的角色，以限制其权限</strong>。</p>
-
-<h3 id="toc_3">锁定受保护的分支</h3>
-
-<p>在对 Git 不熟悉的时候，时常苦恼于各个分支不受约束，任何开发人员都可以向任何分支直接推送任何提交，各种未经审查的代码、花样百出的 Bug 就这样流窜在预发布分支上。<br/>
-其实我们可以通过 GitLab 的受保护分支（Protected Branches）功能 解决该问题，该功能可用于：</p>
-
-<p>阻止 Master 角色以外的开发人员 直接向此类分支推送代码，保持稳定分支的安全性；</p>
-
-<p>在向受保护分支合并代码前，强制进行代码审查。<br/>
-接下来我们就使用这项功能，锁定我们的受保护分支——主分支 <code>master</code> 和预发布分支 <code>release-*</code>，以阻止 <code>dev</code> 直接向这两类分支中推送代码。</p>
-
-<p>若要求严格，则<code>dev</code>也要进行保护，没人新建一个自己的常驻分支，申请合并到<code>dev</code></p>
-
-<p>锁定后, <code>dev</code>推送代码将会报错</p>
-
-<p><img src="http://oec2003.qiniudn.com/15276055106321.jpg" alt=""/></p>
-
-<h3 id="toc_4">发起合并请求</h3>
-
-<p>没问题后就可以push到GitLab中了。接下来请求管理员把自己仓库的分支合并到原仓库的分支下，这就是pull request<br/>
-<img src="https://upload-images.jianshu.io/upload_images/231599-409ef285fe886533.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""/><br/>
-点击这里进入merge request，并且点击New Merge Request：<br/>
-<img src="https://upload-images.jianshu.io/upload_images/231599-f33a42423adaf881.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""/><br/>
-<img src="https://upload-images.jianshu.io/upload_images/231599-6a1609303719bb14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""/><br/>
-提交一个Merge Request，请记得写清楚提交的理由，分配需要为你去做Review的同事。</p>
-
-<p>此外，还可以在评论框中去@其他的同事，也可以在Commit和Change里看到最新的改变。</p>
-
-<h3 id="toc_5">代码审核</h3>
-
-<p>被assign或者at的同事都会收到邮件要求review，那么也会进入到如上的界面中，各位就可以进行Code Review了<br/>
-<img src="https://upload-images.jianshu.io/upload_images/231599-086ffa4507d81cea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""/></p>
-
-<p>在这里，各位可以针对某一行提出自己的意见，也可以在评论里发表意见。如果没有问题，可以输入lgtm(looks good to me)，如果各位都认为没问题，就可以Accept Merge Request了。于是就会看到The Merge Request has been accepted，这时也就提交到了主代码上。</p>
-
-<p>如果代码被评论过后，评论者也会收到消息，修改后push的代码会自动提交到同一个merge request里。</p>
-
-<h3 id="toc_6">审核通过</h3>
-
-<p>审核通过后代码会自动合并到dev分支。并发送消息给当事人</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/6/29</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
-
-
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   <a href="all.html">&laquo; Prev Page</a>  
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			
-			</p>
-			  </div>
-			</div>
 		</div>
-	</div><!-- large 8 -->
+	
 
- <div class="large-4 medium-4 columns">
-  <div class="hide-for-small">
-    <div id="sidebar" class="sidebar">
-          <div id="site-info" class="site-info">
-            
-                <h1>技术积累</h1>
-                <div class="site-des"></div>
-                <div class="social">
+ 
+	
 
+ 
+	
 
-
+  
+  
+</div></div>
 
 
-
-
-
-
-
-
-  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
-                
-              	 </div>
-          	</div>
-
-             
-
-              <div id="site-categories" class="side-item ">
-                <div class="side-header">
-                  <h2>Categories</h2>
-                </div>
-                <div class="side-content">
-
-      	<p class="cat-list">
-        
-            <a href="Git%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7.html"><strong>Git版本工具</strong></a>
-         
-        </p>
-
-
-                </div>
-              </div>
-
-              <div id="site-categories" class="side-item">
-                <div class="side-header">
-                  <h2>Recent Posts</h2>
-                </div>
-                <div class="side-content">
-                <ul class="posts-list">
-	      
-		      
-			      <li class="post">
-			        <a href="15302416575923.html">Git安装</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15302427999465.html">版本库创建</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15302446124635.html">版本更新</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15302503418505.html">版本回退</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15302512669411.html">工作区和暂存区</a>
-			      </li>
-		     
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		   
-		  		</ul>
-                </div>
-              </div>
-        </div><!-- sidebar -->
-      </div><!-- hide for small -->
-</div><!-- large 4 -->
-
-</div><!-- row -->
-
- <div class="page-bottom clearfix">
+<div class="page-bottom">
   <div class="row">
-   <p class="copyright">Copyright &copy; 2015
+  <hr />
+  <div class="small-9 columns">
+  <p class="copyright">Copyright &copy; 2015
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
 Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
   </div>
 </div>
 
         </section>
       </div>
     </div>
-
-  
     
-
+    
     <script src="asset/js/foundation.min.js"></script>
+    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
     <script>
       $(document).foundation();
-      function fixSidebarHeight(){
-        var w1 = $('.markdown-body').height();
-          var w2 = $('#sidebar').height();
-          if (w1 > w2) { $('#sidebar').height(w1); };
-      }
-      $(function(){
-        fixSidebarHeight();
-      })
-      $(window).load(function(){
-          fixSidebarHeight();
-      });
+
      
     </script>
-
     <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
-
 
   </body>
 </html>
