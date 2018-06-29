@@ -8,17 +8,23 @@
   Archives - 技术积累
   
   </title>
- <meta name="description" content="">
- <link href="atom.xml" rel="alternate" title="技术积累" type="application/atom+xml">
+  
+  
+  <link href="atom.xml" rel="alternate" title="技术积累" type="application/atom+xml">
     <link rel="stylesheet" href="asset/css/foundation.min.css" />
     <link rel="stylesheet" href="asset/css/docs.css" />
-
     <script src="asset/js/vendor/modernizr.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
-    <script src="asset/highlightjs/highlight.pack.js"></script>
-    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <script>hljs.initHighlightingOnLoad();</script>
-    
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site: ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
   </head>
   <body class="antialiased hide-extras">
     
@@ -28,11 +34,32 @@
 
 <nav class="top-bar docs-bar hide-for-small" data-topbar>
 
-<div id="header">
-    <h1><a href="index.html">技术积累</a></h1>
-</div>
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
 
 </nav>
+
         <nav class="tab-bar show-for-small">
   <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
     <span> &nbsp; 技术积累</span>
@@ -41,445 +68,542 @@
 
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-      <li><a href="index.html">Home</a></li>
-      
-        <li class="divider"></li>
-        <li><label>Git版本工具</label></li>
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
 
-          
+    <li><label>Categories</label></li>
 
-      
+        
+            <li><a href="Git%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7.html">Git版本工具</a></li>
+         
+
       </ul>
     </aside>
 
 <a class="exit-off-canvas" href="#"></a>
 
+
         <section id="main-content" role="main" class="scroll-container">
+        
+       
 
-          <div class="row">
-            <div class="large-3 medium-3 columns">
-              <div class="hide-for-small">
-                <div class="sidebar">
-                <nav>
-                  <ul id="side-nav" class="side-nav">
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_archives').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+    <div id="archives-page-wrap">
+        <h1>Archives</h1>
+        <div class="markdown-body archives-wrap">
+          
+             
+                <h1>2018</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="15302616116634.html">
+                <h1>Git Flow In GitLab</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a></span>
+                 
+              </div>
+            </div><!-- article -->
 
-                    
-                      <li class="side-title"><span>Git版本工具</span></li>
-                        
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302611080576.html">
+                <h1>Git Flow 工具SourceTree</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a></span>
+                 
+              </div>
+            </div><!-- article -->
 
-                    
-                  </ul>
-                </nav>
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302598615448.html">
+                <h1>Git Flow流程</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302594037991.html">
+                <h1>配置别名</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302592642979.html">
+                <h1>忽略特殊文件</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302581196609.html">
+                <h1>标签管理</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302568814111.html">
+                <h1>Rebase</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302564291146.html">
+                <h1>多人协作</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302562413788.html">
+                <h1>Feature分支</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302560370020.html">
+                <h1>Bug分支</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302553109111.html">
+                <h1>分支管理策略</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302549697544.html">
+                <h1>解决冲突</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302544159488.html">
+                <h1>分支管理</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302542722207.html">
+                <h1>从远程库克隆</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302538220259.html">
+                <h1>远程仓库</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302532981677.html">
+                <h1>删除文件</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302528503439.html">
+                <h1>撤销修改</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302521579062.html">
+                <h1>管理修改</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302512669411.html">
+                <h1>工作区和暂存区</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302503418505.html">
+                <h1>版本回退</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302446124635.html">
+                <h1>版本更新</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302427999465.html">
+                <h1>版本库创建</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="15302416575923.html">
+                <h1>Git安装</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/6/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+           
+        </div>
+      </div>
+  </div>
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>技术积累</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Git%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7.html"><strong>Git版本工具</strong></a>
+         
+        </p>
+
+
                 </div>
               </div>
-            </div>
-            <div class="large-9 medium-9 columns">
 
- <div class="markdown-body">
-	
-		 
-		  	<h2>2018</h2>
-		
-		
-			<div>
-				<h3><a href="15302616116634.html">Git Flow In GitLab</a></h3>
-				<p>
-					<time datetime="2018-06-29T16:40:11+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a>&nbsp;
-				   
-				  </span>
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15302416575923.html">Git安装</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302427999465.html">版本库创建</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302446124635.html">版本更新</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302503418505.html">版本回退</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302512669411.html">工作区和暂存区</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302611080576.html">Git Flow 工具SourceTree</a></h3>
-				<p>
-					<time datetime="2018-06-29T16:31:48+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a>&nbsp;
-				   
-				  </span>
+</div><!-- row -->
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302598615448.html">Git Flow流程</a></h3>
-				<p>
-					<time datetime="2018-06-29T16:11:01+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git-Flow%E4%BD%BF%E7%94%A8.html'>Git-Flow使用</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302594037991.html">配置别名</a></h3>
-				<p>
-					<time datetime="2018-06-29T16:03:23+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302592642979.html">忽略特殊文件</a></h3>
-				<p>
-					<time datetime="2018-06-29T16:01:04+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302581196609.html">标签管理</a></h3>
-				<p>
-					<time datetime="2018-06-29T15:41:59+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302568814111.html">Rebase</a></h3>
-				<p>
-					<time datetime="2018-06-29T15:21:21+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302564291146.html">多人协作</a></h3>
-				<p>
-					<time datetime="2018-06-29T15:13:49+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302562413788.html">Feature分支</a></h3>
-				<p>
-					<time datetime="2018-06-29T15:10:41+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302560370020.html">Bug分支</a></h3>
-				<p>
-					<time datetime="2018-06-29T15:07:17+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302553109111.html">分支管理策略</a></h3>
-				<p>
-					<time datetime="2018-06-29T14:55:10+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302549697544.html">解决冲突</a></h3>
-				<p>
-					<time datetime="2018-06-29T14:49:29+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302544159488.html">分支管理</a></h3>
-				<p>
-					<time datetime="2018-06-29T14:40:15+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302542722207.html">从远程库克隆</a></h3>
-				<p>
-					<time datetime="2018-06-29T14:37:52+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302538220259.html">远程仓库</a></h3>
-				<p>
-					<time datetime="2018-06-29T14:30:22+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302532981677.html">删除文件</a></h3>
-				<p>
-					<time datetime="2018-06-29T14:21:38+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302528503439.html">撤销修改</a></h3>
-				<p>
-					<time datetime="2018-06-29T14:14:10+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302521579062.html">管理修改</a></h3>
-				<p>
-					<time datetime="2018-06-29T14:02:37+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302512669411.html">工作区和暂存区</a></h3>
-				<p>
-					<time datetime="2018-06-29T13:47:46+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302503418505.html">版本回退</a></h3>
-				<p>
-					<time datetime="2018-06-29T13:32:21+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302446124635.html">版本更新</a></h3>
-				<p>
-					<time datetime="2018-06-29T11:56:52+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302427999465.html">版本库创建</a></h3>
-				<p>
-					<time datetime="2018-06-29T11:26:39+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15302416575923.html">Git安装</a></h3>
-				<p>
-					<time datetime="2018-06-29T11:07:37+08:00" pubdate><span class='month'>6月</span> <span class='day'>29</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	 
-</div>  
-</div></div>
-
-
-<div class="page-bottom">
+ <div class="page-bottom clearfix">
   <div class="row">
-  <hr />
-  <div class="small-9 columns">
-  <p class="copyright">Copyright &copy; 2015
+   <p class="copyright">Copyright &copy; 2015
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
 Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
-  </div>
-  <div class="small-3 columns">
-  <p class="copyright text-right"><a href="#header">TOP</a></p>
-  </div>
-   
   </div>
 </div>
 
         </section>
       </div>
     </div>
+
+  
     
-    
+
     <script src="asset/js/foundation.min.js"></script>
-    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
     <script>
       $(document).foundation();
-
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
      
     </script>
+
     <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
 
   </body>
 </html>
