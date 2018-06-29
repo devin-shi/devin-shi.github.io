@@ -1,0 +1,423 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  配置别名 - 技术积累
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="技术积累" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site: ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 技术积累</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Git%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7.html">Git版本工具</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>配置别名</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/6/29</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>有没有经常敲错命令？比如<code>git status</code>？<code>status</code>这个单词真心不好记。</p>
+
+<p>如果敲<code>git st</code>就表示<code>git status</code>那就简单多了，当然这种偷懒的办法我们是极力赞成的。</p>
+
+<p>我们只需要敲一行命令，告诉Git，以后st就表示status：</p>
+
+<pre><code class="language-mac">$ git config --global alias.st status
+</code></pre>
+
+<p>好了，现在敲<code>git st</code>看看效果。</p>
+
+<p>当然还有别的命令可以简写，很多人都用<code>co</code>表示<code>checkout</code>，ci表示<code>commit</code>，<code>br</code>表示<code>branch</code>：</p>
+
+<pre><code class="language-mac">$ git config --global alias.co checkout
+$ git config --global alias.ci commit
+$ git config --global alias.br branch
+</code></pre>
+
+<p>以后提交就可以简写成：</p>
+
+<pre><code class="language-mac">$ git ci -m &quot;bala bala bala...&quot;
+</code></pre>
+
+<p><code>--global</code>参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。</p>
+
+<p>在撤销修改一节中，我们知道，命令<code>git reset HEAD file</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区。既然是一个unstage操作，就可以配置一个unstage别名：</p>
+
+<pre><code class="language-mac">$ git config --global alias.unstage &#39;reset HEAD&#39;
+</code></pre>
+
+<p>当你敲入命令：</p>
+
+<pre><code class="language-mac">$ git unstage test.py
+</code></pre>
+
+<p>实际上Git执行的是：</p>
+
+<pre><code class="language-mac">$ git reset HEAD test.py
+</code></pre>
+
+<p>配置一个git last，让其显示最后一次提交信息：</p>
+
+<pre><code class="language-mac">$ git config --global alias.last &#39;log -1&#39;
+</code></pre>
+
+<p>这样，用git last就能显示最近一次的提交：</p>
+
+<pre><code class="language-mac">$ git last
+commit adca45d317e6d8a4b23f9811c3d7b7f0f180bfe2
+Merge: bd6ae48 291bea8
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Thu Aug 22 22:49:22 2013 +0800
+
+    merge &amp; fix hello.py
+</code></pre>
+
+<p>甚至还有人丧心病狂地把<code>lg</code>配置成了：</p>
+
+<pre><code class="language-mac">git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;
+</code></pre>
+
+<p>来看看<code>git lg</code>的效果：<br/>
+<img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/00138492662982594cbd1a942114472aeeb5f0a502faed1000/0" alt=""/></p>
+
+<h3 id="toc_0">配置文件</h3>
+
+<p>配置Git的时候，加上<code>--global</code>是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。</p>
+
+<p>配置文件放哪了？每个仓库的Git配置文件都放在<code>.git/config</code>文件中：</p>
+
+<pre><code class="language-mac">$ cat .git/config 
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    precomposeunicode = true
+[remote &quot;origin&quot;]
+    url = git@github.com:michaelliao/learngit.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch &quot;master&quot;]
+    remote = origin
+    merge = refs/heads/master
+[alias]
+    last = log -1
+</code></pre>
+
+<p>别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。</p>
+
+<p>而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中：</p>
+
+<pre><code class="language-mac">$ cat .gitconfig
+[alias]
+    co = checkout
+    ci = commit
+    br = branch
+    st = status
+[user]
+    name = Your Name
+    email = your@email.com
+</code></pre>
+
+<p>配置别名也可以直接修改这个文件，如果改错了，可以删掉文件重新通过命令配置。</p>
+
+<p>小结<br/>
+给Git配置好别名，就可以输入命令时偷个懒。我们鼓励偷懒。</p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15302592642979.html" 
+          title="Previous Post: 忽略特殊文件">&laquo; 忽略特殊文件</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15302598615448.html" 
+          title="Next Post: Git Flow流程">Git Flow流程 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>技术积累</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Git%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7.html"><strong>Git版本工具</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15302416575923.html">Git安装</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302427999465.html">版本库创建</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302446124635.html">版本更新</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302503418505.html">版本回退</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302512669411.html">工作区和暂存区</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+
+  </body>
+</html>

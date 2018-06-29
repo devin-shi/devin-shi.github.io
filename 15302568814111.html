@@ -1,0 +1,496 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  Rebase - 技术积累
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="技术积累" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site: ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 技术积累</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Git%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7.html">Git版本工具</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Rebase</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/6/29</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html'>Git基础知识</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>多人在同一个分支上协作时，很容易出现冲突。即使没有冲突，后push的童鞋不得不先pull，在本地合并，然后才能push成功。</p>
+
+<p>每次合并再push后，分支变成了这样：<br/>
+<code>mac<br/>
+$ git log --graph --pretty=oneline --abbrev-commit<br/>
+* d1be385 (HEAD -&gt; master, origin/master) init hello<br/>
+*   e5e69f1 Merge branch &#39;dev&#39;<br/>
+|\  <br/>
+| *   57c53ab (origin/dev, dev) fix env conflict<br/>
+| |\  <br/>
+| | * 7a5e5dd add env<br/>
+| * | 7bd91f1 add new env<br/>
+| |/  <br/>
+* |   12a631b merged bug fix 101<br/>
+|\ \  <br/>
+| * | 4c805e2 fix bug 101<br/>
+|/ /  <br/>
+* |   e1e9c68 merge with no-ff<br/>
+|\ \  <br/>
+| |/  <br/>
+| * f52c633 add merge<br/>
+|/  <br/>
+*   cf810e4 conflict fixed<br/>
+</code></p>
+
+<p>总之看上去很乱，有强迫症的童鞋会问：为什么Git的提交历史不能是一条干净的直线？</p>
+
+<p>其实是可以做到的！</p>
+
+<p>Git有一种称为<code>rebase</code>的操作，有人把它翻译成“变基”。</p>
+
+<p>在和远程分支同步后，我们对hello.py这个文件做了两次提交。用git log命令看看：</p>
+
+<pre><code class="language-mac">$ git log --graph --pretty=oneline --abbrev-commit
+* 582d922 (HEAD -&gt; master) add author
+* 8875536 add comment
+* d1be385 (origin/master) init hello
+*   e5e69f1 Merge branch &#39;dev&#39;
+|\  
+| *   57c53ab (origin/dev, dev) fix env conflict
+| |\  
+| | * 7a5e5dd add env
+| * | 7bd91f1 add new env
+...
+</code></pre>
+
+<p>注意到Git用<code>(HEAD -&gt; master)</code>和<code>(origin/master)</code>标识出当前分支的<code>HEAD</code>和远程<code>origin</code>的位置分别是<code>582d922 add author</code>和<code>d1be385 init hello</code>，本地分支比远程分支快两个提交。</p>
+
+<p>现在我们尝试推送本地分支：</p>
+
+<pre><code class="language-mac">$ git push origin master
+To github.com:michaelliao/learngit.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to &#39;git@github.com:michaelliao/learngit.git&#39;
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., &#39;git pull ...&#39;) before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+</code></pre>
+
+<p>很不幸，失败了，这说明有人先于我们推送了远程分支。按照经验，先<code>pull</code>一下：</p>
+
+<pre><code class="language-mac">$ git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:michaelliao/learngit
+   d1be385..f005ed4  master     -&gt; origin/master
+ * [new tag]         v1.0       -&gt; v1.0
+Auto-merging hello.py
+Merge made by the &#39;recursive&#39; strategy.
+ hello.py | 1 +
+ 1 file changed, 1 insertion(+)
+</code></pre>
+
+<p>再用<code>git status</code>看看状态：</p>
+
+<pre><code class="language-mac">$ git status
+On branch master
+Your branch is ahead of &#39;origin/master&#39; by 3 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+nothing to commit, working tree clean
+</code></pre>
+
+<p>加上刚才合并的提交，现在我们本地分支比远程分支超前3个提交。</p>
+
+<p>用git log看看：</p>
+
+<pre><code class="language-mac">$ git log --graph --pretty=oneline --abbrev-commit
+*   e0ea545 (HEAD -&gt; master) Merge branch &#39;master&#39; of github.com:michaelliao/learngit
+|\  
+| * f005ed4 (origin/master) set exit=1
+* | 582d922 add author
+* | 8875536 add comment
+|/  
+* d1be385 init hello
+...
+</code></pre>
+
+<p>对强迫症童鞋来说，现在事情有点不对头，提交历史分叉了。如果现在把本地分支<code>push</code>到远程，有没有问题？</p>
+
+<p>这个时候，rebase就派上了用场。我们输入命令<code>git rebase</code>试试：</p>
+
+<pre><code class="language-mac">$ git rebase
+First, rewinding head to replay your work on top of it...
+Applying: add comment
+Using index info to reconstruct a base tree...
+M    hello.py
+Falling back to patching base and 3-way merge...
+Auto-merging hello.py
+Applying: add author
+Using index info to reconstruct a base tree...
+M    hello.py
+Falling back to patching base and 3-way merge...
+Auto-merging hello.py
+</code></pre>
+
+<p>输出了一大堆操作，到底是啥效果？再用git log看看：</p>
+
+<pre><code class="language-mac">$ git log --graph --pretty=oneline --abbrev-commit
+* 7e61ed4 (HEAD -&gt; master) add author
+* 3611cfe add comment
+* f005ed4 (origin/master) set exit=1
+* d1be385 init hello
+...
+</code></pre>
+
+<p>原本分叉的提交现在变成一条直线了！这种神奇的操作是怎么实现的？其实原理非常简单。我们注意观察，发现Git把我们本地的提交“挪动”了位置，放到了<code>f005ed4 (origin/master) set exit=1</code>之后，这样，整个提交历史就成了一条直线。<code>rebase</code>操作前后，最终的提交内容是一致的，但是，我们本地的<code>commit</code>修改内容已经变化了，它们的修改不再基于<code>d1be385 init hello</code>，而是基于<code>f005ed4 (origin/master) set exit=1</code>，但最后的提交<code>7e61ed4</code>内容是一致的。</p>
+
+<p>这些命令会把你的<code>master</code>分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到<code>.git/rebase</code>目录中),然后把<code>master</code>分支更新 到最新的<code>dev</code>分支，最后把保存的这些补丁应用到<code>master</code>分支上。当<code>master</code>分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除。</p>
+
+<p>这就是<code>rebase</code>操作的特点：把分叉的提交历史“整理”成一条直线，看上去更直观。缺点是本地的分叉提交已经被修改过了。</p>
+
+<p>最后，通过push操作把本地分支推送到远程：</p>
+
+<pre><code class="language-mac">Mac:~/learngit michael$ git push origin master
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 576 bytes | 576.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To github.com:michaelliao/learngit.git
+   f005ed4..7e61ed4  master -&gt; master
+</code></pre>
+
+<p>再用git log看看效果：</p>
+
+<pre><code class="language-mac">$ git log --graph --pretty=oneline --abbrev-commit
+* 7e61ed4 (HEAD -&gt; master, origin/master) add author
+* 3611cfe add comment
+* f005ed4 set exit=1
+* d1be385 init hello
+...
+</code></pre>
+
+<p>远程分支的提交历史也是一条直线。</p>
+
+<p>在<code>rebase</code>的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决 冲突；在解决完冲突后，用<code>git-add</code>命令去更新这些内容的索引(index), 然后，你无需执行 <code>git-commit</code>,只要执行:<br/>
+<code><br/>
+</code><code>mac<br/>
+$ git rebase --continue<br/>
+</code><code><br/>
+这样git会继续应用(</code>apply`)余下的补丁。</p>
+
+<p>在任何时候，你可以用<code>--abort</code>参数来终止<code>rebase</code>的行动，并且<code>mywork</code> 分支会回到<code>rebase</code>开始前的状态。</p>
+
+<pre><code class="language-mac">$ git rebase --abort
+</code></pre>
+
+<h3 id="toc_0">小结</h3>
+
+<ol>
+<li>rebase操作可以把本地未push的分叉提交历史整理成直线；</li>
+<li>rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</li>
+<li><strong>一般我们<code>release</code>分支到<code>master</code>分支的时候可以使用<code>rebase</code>，直线是正常的版本迭代，分支是hotfix修复后数据的迭代，不用追溯到具体的提交点</strong></li>
+</ol>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15302564291146.html" 
+          title="Previous Post: 多人协作">&laquo; 多人协作</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15302581196609.html" 
+          title="Next Post: 标签管理">标签管理 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>技术积累</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Git%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7.html"><strong>Git版本工具</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15302416575923.html">Git安装</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302427999465.html">版本库创建</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302446124635.html">版本更新</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302503418505.html">版本回退</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15302512669411.html">工作区和暂存区</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+
+  </body>
+</html>
